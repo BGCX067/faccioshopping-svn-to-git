@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.1 (branches/2.1-6728; 2011-02-03T14:14:58+0000) JAXWS-RI/2.2.3 JAXWS/2.2. --><xs:schema xmlns:tns="http://webservices/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservices/">
+
+<xs:element name="amico" type="tns:amico" />
+
+<xs:element name="regalo" type="tns:regalo" />
+
+<xs:element name="ricercaListaAmiciByKeyword" type="tns:ricercaListaAmiciByKeyword" />
+
+<xs:element name="ricercaListaAmiciByKeywordResponse" type="tns:ricercaListaAmiciByKeywordResponse" />
+
+<xs:element name="ricercaListaRegaliByEmail" type="tns:ricercaListaRegaliByEmail" />
+
+<xs:element name="ricercaListaRegaliByEmailResponse" type="tns:ricercaListaRegaliByEmailResponse" />
+
+<xs:element name="ricercaListaRegaliByIdAmico" type="tns:ricercaListaRegaliByIdAmico" />
+
+<xs:element name="ricercaListaRegaliByIdAmicoResponse" type="tns:ricercaListaRegaliByIdAmicoResponse" />
+
+<xs:element name="ricercaUtenteByEmail" type="tns:ricercaUtenteByEmail" />
+
+<xs:element name="ricercaUtenteByEmailResponse" type="tns:ricercaUtenteByEmailResponse" />
+
+<xs:element name="ricercaUtenteById" type="tns:ricercaUtenteById" />
+
+<xs:element name="ricercaUtenteByIdResponse" type="tns:ricercaUtenteByIdResponse" />
+
+<xs:complexType name="ricercaUtenteByEmail">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ricercaUtenteByEmailResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:amico" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="amico">
+<xs:sequence>
+<xs:element name="cognome" type="xs:string" minOccurs="0" />
+<xs:element name="dataRegistrazione" type="xs:dateTime" minOccurs="0" />
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="id" type="xs:int" minOccurs="0" />
+<xs:element name="nome" type="xs:string" minOccurs="0" />
+<xs:element name="password" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ricercaListaRegaliByEmail">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ricercaListaRegaliByEmailResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:regalo" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="regalo">
+<xs:sequence>
+<xs:element name="descrizione" type="xs:string" minOccurs="0" />
+<xs:element name="id" type="xs:int" minOccurs="0" />
+<xs:element name="idAmico" type="xs:int" />
+<xs:element name="nome" type="xs:string" minOccurs="0" />
+<xs:element name="urlArticolo" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ricercaListaAmiciByKeyword">
+<xs:sequence>
+<xs:element name="keyword" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ricercaListaAmiciByKeywordResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:amico" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ricercaUtenteById">
+<xs:sequence>
+<xs:element name="idAmico" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ricercaUtenteByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:amico" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ricercaListaRegaliByIdAmico">
+<xs:sequence>
+<xs:element name="idAmico" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ricercaListaRegaliByIdAmicoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:regalo" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

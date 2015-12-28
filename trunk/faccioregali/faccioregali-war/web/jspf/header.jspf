@@ -1,0 +1,72 @@
+<%-- 
+    Document   : index
+    Created on : 2-giu-2011, 16.07.44
+    Author     : Davide
+--%>
+<%-- HTML markup starts below --%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page pageEncoding="UTF-8" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/fs_stile.css">
+        <script src="./js/fs_script.js" type="text/javascript" language="javascript"></script>
+        <script src="./js/jquery.js" type="text/javascript" language="javascript"></script>
+        <script src="./js/jquery.validate.js" type="text/javascript" language="javascript"></script>        
+        <title><fmt:message key='title' /></title>
+    </head>
+    <body>
+        <div id="main"> 
+            <div style="height:35px;background-color: #eee;">
+            <ul id="menu">
+                <li>
+                    <a href="./home"><img title="facciosport" alt="facciosport" border="0" src="img/logo.png"/></a>
+                    <br/>
+                    <b style="font-size: 9pt;font-family: Tahoma;color:#333;"><fmt:message key='title' /></b>
+                </li>
+                <li>                    
+                    <a href="./home">home</a>
+                </li>
+                <c:choose>
+                    <c:when test="${utentefaccioregali != null}">  
+                         <li>                    
+                             <a href="./regalo?action=getRegali"><fmt:message key='gifts'></fmt:message></a>
+                        </li>
+                        <li>                    
+                            <a href="./login?action=logout">logout</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li>                    
+                            <a href="./login">login</a>
+                        </li>
+                        <li>                    
+                            <a href="./login?action=registra"><fmt:message key='register' /></a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>   
+            </ul>           
+            </div>
+            <div class="clear"></div> 
+            <c:choose>
+                <c:when test="${utentefaccioregali != null}">  
+                    <div class="welcome">
+                        <b style="font-size: 11pt;">${utentefaccioregali.nome}&nbsp;${utentefaccioregali.cognome}</b> <fmt:message key="welcome"></fmt:message>!
+                    </div>
+                </c:when>
+            </c:choose>
+            <c:if test="${requestScope.err != null}">
+                                <div class="errorMsg">
+                                    ${err}
+                                </div>
+            </c:if>
+            <c:if test="${requestScope.ok != null}">
+                                <div class="okMsg">
+                                    ${ok}
+                                </div>
+            </c:if>
+            <div style="border-bottom:1px dotted #666;width:95%;margin:2px auto;"></div>   

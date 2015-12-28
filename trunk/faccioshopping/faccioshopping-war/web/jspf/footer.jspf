@@ -1,0 +1,20 @@
+<%-- 
+    Document   : index
+    Created on : 2-giu-2011, 15.14.34
+    Author     : Davide
+--%>
+
+        <div class="clear"></div>
+        <div id="footer">           
+            <p id="footerText" class="reallySmallText" style="color:#fff;">   
+                <a href="<c:url value='#'/>"><fmt:message key="aboutus" /></a>
+                &nbsp;|&nbsp;
+                <a href="mailto:info@facciosport.it"><fmt:message key="contact" /></a>
+                &nbsp;|&nbsp;
+                <a href="<c:url value='#'/>"><fmt:message key="privacy" /></a>
+                &nbsp;|&nbsp; 
+                <fmt:message key="title" />&nbsp;&copy;&nbsp;2011</p>
+        </div>
+        </div>
+    </body>
+</html>

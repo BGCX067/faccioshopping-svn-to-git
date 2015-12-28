@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <context-param>
+        <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+        <param-value>risorse.testi</param-value>
+    </context-param>
+    <context-param>
+        <description>id negoziante per google checkout sanbox API</description>
+        <param-name>idNegoziante</param-name>
+        <param-value>665385578938873</param-value>
+    </context-param>
+    <context-param>
+        <description>key negoziante per google checokut sandbox API</description>
+        <param-name>keyNegoziante</param-name>
+        <param-value>7_sOCrN2KyE_z2j87CDGlA</param-value>
+    </context-param>
+    <context-param>
+        <description>codice valuta per gli ordini google checkout sandbox API</description>
+        <param-name>codValuta</param-name>
+        <param-value>GBP</param-value>
+    </context-param>
+    <context-param>
+        <description>spese di spedizione per ordini tradizionali</description>
+        <param-name>deliverySurcharge</param-name>
+        <param-value>3.00</param-value>
+    </context-param>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/jspf/error/403.jspf</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/jspf/error/404.jspf</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/jspf/error/500.jspf</location>
+    </error-page>
+    <jsp-config>
+        <jsp-property-group>
+            <description>template del sito faccioshopping</description>
+            <display-name>jspf template</display-name>
+            <url-pattern>/index.jsp</url-pattern>
+            <url-pattern>/view/*</url-pattern>
+            <url-pattern>/jspf/error/*</url-pattern>
+            <include-prelude>/jspf/header.jspf</include-prelude>
+            <include-coda>/jspf/footer.jspf</include-coda>
+        </jsp-property-group>
+    </jsp-config>
+</web-app>

@@ -1,0 +1,83 @@
+#summary Esempi di User Stories di faccioshopping
+#labels Phase-Design,UML,CRC
+
+==Utente Visitatore==
+
+
+===selezionare un catalogo pubblicato dall’elenco cataloghi cliccando sul bottone link===
+  #  viene mostrato un elenco delle categorie che appartengono al catalogo di default la prima è quella selezionata
+  #  utente può selezionare con un link bottone un’altra categoria
+  #  viene mostrato un elenco degli articoli presenti nella categoria selezionata
+    *  ogni articolo ha immagine nome descrizione prezzo
+  #  cliccando su un bottone link si entra nel dettaglio dell’articolo
+  #  selezionando una caratteristica (le caratteristiche mostrate sono solo quelle disponibili nel magazzino) si può aggiungere l’articolo al proprio carrello della spesa
+  #  se l’articolo viene aggiunto allora viene aggiornato il carrello
+
+
+
+===registrazione===
+informazioni richieste obbligatoriamente dal sistema per la fase di registrazione:
+  #  nome 
+  #  cognome
+  #  e-mail
+  #  password
+  #  conferma password 
+
+_Nota: un utente è incentivato ad entrare perché la prima volta riceve un buono spesa di 5€ per il primo acquisto e 3€ ogni volta che fa un regalo ad un amico registrato su faccioregali_
+
+
+===carrello della spesa (vedi utente registrato)===
+
+
+===ordine con Google Checkout (vedi utente registrato)===
+
+
+===login (con OpenID o direttamente dal form di login)===
+  #  con il form di login vengono richiesti l’indirizzo email e la password dell’utente
+    *  se corretti l’utente si troverà nella pagina home
+    *  se non corretti comparirà un messaggio di errore e l’utente può riprovare con altre credenziali e un captha code da inserire (evitare i bot)
+  #  con OpenID cliccando su un provider di autenticazione, l’utente è comunque tenuto a compilare un form con le sue informazioni corrette: nome cognome ecc. eccetto indirizzo email che viene restituito dal provider.
+
+
+==Utente Registrato==
+
+
+===ricerca un articolo tra i cataloghi memorizzati===
+  #  Decidere se inserirlo nella propria lista dei desideri di faccioregali (solo per utenti registrati).
+    *  Se l’utente è registrato su faccioregali l’operazione è possibile altrimenti viene visualizzato un messaggio di alert.
+    *  Il sistema notifica con una email l’avvenuto inserimento dell’articolo nella lista dei desideri
+  #  Aggiungerlo alla lista della spesa nel carrello.
+===ricerca di un amico su faccioregali e visualizzare la sua lista dei desideri e decidere se regalare un articolo della lista aggiungendolo al proprio carrello della spesa.===
+  #  Ogni elemento della lista ha un link alla pagina dell’articolo, il nome dell’articolo, il prezzo ed un bottone che permette di aggiungere l’articolo al proprio carrello della spesa.
+  #  Se l’articolo della lista appartiene ad uno dei cataloghi faccioshopping l’articolo selezionato viene aggiunto al carrello della spesa.
+
+
+===acquisto con Google Checkout===
+  #  Si apre una finestra di popup di autenticazione su Google se l’utente è registrato prosegue le operazioni di pagamento direttamente su Google Checkout.
+
+
+===acquisto di articoli presenti nel suo carrello della spesa con il sistema di chekout del sito (oltre che con Google Checkout).===
+L’informazione necessaria sarà l’indirizzo di spedizione della merce, l’utente loggato è anche destinatario dell’ordine.
+  #  Se l’utente ha diritto ad un buono sconto o ad una promozione   l’importo verrà ricalcolato correttamente dal sistema
+  #  Se l’utente concluderà l’acquisto facendo un regalo, la lista desideri dell’amico verrà aggiornata. 
+  #  Il sistema nel caso di acquisto di un regalo memorizza un credito d’acquisto bonus per l’utente.
+  #  compila un form con i suoi dati personali, che saranno indirizzo di spedizione e numero di carta di credito. Nome cognome e email non sono editabili e sono quelli dell’utente.  
+    *  il sistema mostra un riepilogo degli acquisti con nome articolo, descrizione, prezzo singolo, quantità e totale per articolo: prezzo x quantità.
+    *  Il sistema calcola successivamente le spese di spedizione in funzione della località in cui è richiesta la merce
+    *  Il sistema calcola il totale dell’ordine
+    *  L’utente cliccando su un bottone può decidere se utilizzare il credito accumulato o anche solo una parte
+    *  La spedizione sarà gratuita superata una certa soglia di valore complessivo d’acquisto
+    *  Se l’operazione è andata a buon fine verrà visualizzato un messaggio di conferma e inoltrata una mail con tutti i dettagli dell’ordine e allegata la ricevuta di pagamento.
+    *  Il carrello della spesa viene svuotato e l’utente viene portato sulla home page.
+
+_Nota: Una volta evaso l’ordine il sistema aggiorna la disponibilità degli articoli a magazzino._
+
+
+
+===gestione del suo carrello della spesa===
+  #  Nel carrello vengono visualizzati tutti gli articoli presenti con la loro immagine il nome la descrizione il prezzo e la quantità selezionata.
+  #  Un utente può modificare la quantità di un articolo e cliccare su aggiorna per modificare la quantità selezionata di un articolo.
+  #  Un elemento del carrello può essere cancellato cliccando sul bottone cancella
+  #  L’utente può decidere se procedere con l’ordine cliccando sul bottone ordina con Google Checkout
+  #  L’ utente può procedere con l’ordine da sito (solo se registrato) il bottone non è visibile se l’utente non è registrato
+  #  L’utente può ritornare ai suoi acquisti cliccando su un bottone che lo riporta nell’ultimo catalogo visitato

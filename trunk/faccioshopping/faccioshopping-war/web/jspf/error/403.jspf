@@ -1,0 +1,12 @@
+<%-- 
+    Document   : index
+    Created on : 2-giu-2011, 15.14.34
+    Author     : Davide
+--%>
+
+
+<p class="error">
+    <img src="img/fish-bowls.jpg"/>
+    <br/>
+    <fmt:message key="forbidden"/>
+</p>

@@ -1,0 +1,194 @@
+#summary CRC cards di faccioshopping.
+#labels Phase-Design,CRC
+
+|| *Class* || ||
+|| Responsability || Collaboration ||
+
+
+|| *articolo* || ||
+||identificativo|| ||
+||nome|| ||
+||descrizione|| categoria ||
+||immagine|| ||
+||prezzo|| ||
+||categoria|| ||
+||quantità disponibile || ||
+
+|| *categoria* || ||
+||identificativo|| ||
+||nome|| catalogo ||
+||catalogo|| articolo ||
+||lista articoli|| ||
+
+|| *catalogo* || ||
+||identificativo|| ||
+||nome|| categoria ||
+||periodo validità|| ||
+||lista categorie|| ||
+
+|| *utente* || ||
+||nome|| ||
+||cognome|| ||
+||email|| rubrica_utente ||
+||password|| ruolo ||
+||flag interno o OpenID|| ||
+||ruolo|| ||
+
+|| *ruolo* || ||
+||identificativo|| ||
+||descrizione|| ||
+
+|| *rubrica_utente* || ||
+||utente|| ||
+||indirizzo|| ||
+||citta|| utente ||
+||provincia|| ||
+||cap|| ||
+||numero di telefono|| ||
+|| numeroCC || ||
+||credito bonus|| ||
+
+|| *magazzino* || ||
+||articolo|| articolo ||
+||caratteristica|| caratteristica ||
+||quantità disponibile|| ||
+
+|| *caratteristica* || ||
+||identificativo|| ||
+||valore|| ||
+
+|| *prenotazione* || ||
+||identificativo|| ||
+||articolo|| articolo ||
+||utente|| utente ||
+||data prenotazione|| ||
+||data previsto arrivo|| ||
+
+|| *carrello * || ||
+||lista elementi carrello|| ||
+||numero elementi|| ||
+||totale spese sped. escluse|| elemento_carrello ||
+||aggiungi elemento|| ||
+||rimuovi elemento|| ||
+||aggiorna qta elemento|| ||
+
+|| *elemento_carrello * || ||
+|| articolo selezionato || caratteristica ||
+|| quantità || articolo ||
+|| caratteristica || ||
+
+|| *amico* faccioregali || ||
+||nome|| ||
+||cognome|| ||
+||email|| regalo ||
+||password|| ||
+||lista regali|| ||
+
+|| *regalo* faccioregali || ||
+||amico|| ||
+||identificativo|| utente ||
+||url|| ||
+||nome|| ||
+
+|| *ordine* || ||
+||identificativo|| ||
+||utente|| ||
+||lista dettaglio|| elemento_ordine ||
+||importo|| utente ||
+||sconto|| stato_ordine ||
+||totale|| ||
+||stato|| ||
+
+|| *elemento_ordine* || ||
+||articolo|| ||
+||ordine|| ||
+||quantità ordinata|| ordine ||
+||importo|| articolo||
+||sconto|| ||
+||totale|| ||
+
+|| *stato_ordine* || ||
+||identificativo|| ||
+||valore|| ||
+
+|| *gestore_catalogo* || ||
+|| seleziona cataloghi validi || ||
+|| inserisci || catalogo ||
+|| cancella || ||
+|| modifica || ||
+
+|| *gestore_categoria* || ||
+|| seleziona categoria per id || ||
+|| inserisci || ||
+|| cancella || categoria ||
+|| modifica || ||
+
+|| *gestore_articolo* || ||
+|| seleziona per id || ||
+|| seleziona per nome || ||
+|| inserisci || articolo ||
+|| cancella || prenotazione ||
+|| modifica || ||
+|| prenota articolo || ||
+
+|| *gestore_magazzino* || ||
+|| seleziona caratteristiche disponibili di un articolo || magazzino ||
+|| inserisci/cancella/modifica articolo || articolo ||
+|| aggiorna quantità disponibile articolo || ||
+
+|| *gestore_utente* || ||
+|| inserisci acquisto ordine|| ||
+|| seleziona ordine per id|| ||
+|| cancella acquisto ordine|| ordine ||
+|| login || utente ||
+|| login openID || ||
+|| registrazione nuovo || ||
+|| modifica utente || ||
+|| cancella utente || ||
+
+|| *controller_vetrina* || ||
+|| lista cataloghi validi || ||
+|| seleziona categoria per id || controller_carrello ||
+|| seleziona catalogo per id || gestore_catalogo  ||
+|| seleziona articolo per id || gestore_categoria ||
+|| seleziona categoria per id || gestore_articolo ||
+|| seleziona catalogo per id || ||
+|| regala || ||
+|| prenotazione || ||
+
+|| *controller_utente* || ||
+|| login utente sito || ||
+|| login OpenID || ||
+|| registrazione utente sito || gestore_utente ||
+|| registrazione OpenID || ||
+|| modifica dati || ||
+|| logout || ||
+
+|| *controller_carrello* || ||
+|| aggiungi elemento || carrello ||
+|| aggiorna quantità || elemento_carrello ||
+|| svuota carrello || ||
+
+|| *controller_faccioregali* || ||
+|| aggiungi un regalo || ||
+|| seleziona regali || servizio_faccioregali ||
+|| cerca amici || controller_carrello ||
+|| seleziona lista amici || ||
+|| seleziona singolo utente || ||
+
+|| *controller_ordine* || ||
+|| visualizza testata e elementi || ||
+|| visualizza mappa Google || gestore_ordine ||
+|| cancella || gestore_magazzino ||
+|| google Checkout || ||
+|| checkout interno sito || ||
+|| aggiorna disponibilità articolo || ||
+
+|| *controller_admin_vetrina* || ||
+|| modifica/inserisci/cancella catalogo || gestore_categoria ||
+|| modifica/inserisci/cancella categoria|| gestore_catalogo ||
+|| modifica/inserisci/cancella articolo || gestore_articolo ||
+
+
+|| *controller_admin_utente* || ||
+|| modifica/inserisci/cancella utente || gestore_utente ||

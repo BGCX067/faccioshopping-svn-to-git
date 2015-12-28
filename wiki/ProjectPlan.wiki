@@ -1,0 +1,5 @@
+#summary One-sentence summary of this page.
+#labels Phase-Design,Project,Plan
+
+|| *TASK* || *DURATA FULL-TIME* || *DURATA PART-TIME* || *RISORSE STIMATE*  ||
+|| || || || || 
